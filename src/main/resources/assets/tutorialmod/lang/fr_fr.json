@@ -1,4 +1,6 @@
 {
   "item.tutorialmod.alexandrite": "Alexandrite",
-  "item.tutorialmod.raw_alexandrite": "Alexandrite brute"
+  "item.tutorialmod.raw_alexandrite": "Alexandrite brute",
+  "block.tutorialmod.alexandrite_block": "Bloc d'Alexandrite",
+  "block.tutorialmod.raw_alexandrite_block": "Block d'Alexandrite brute"
 }
