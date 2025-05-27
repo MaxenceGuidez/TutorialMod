@@ -2,7 +2,9 @@
   "item.tutorialmod.alexandrite": "Alexandrite",
   "item.tutorialmod.raw_alexandrite": "Alexandrite brute",
   "block.tutorialmod.alexandrite_block": "Bloc d'Alexandrite",
-  "block.tutorialmod.raw_alexandrite_block": "Block d'Alexandrite brute",
+  "block.tutorialmod.raw_alexandrite_block": "Bloc d'Alexandrite brute",
+  "block.tutorialmod.alexandrite_ore": "Minerai d'Alexandrite",
+  "block.tutorialmod.alexandrite_deepslate_ore": "Minerai d'Alexandrite des abîmes",
   "creativetab.tutorialmod.alexandrite_items": "Items d'Alexandrite",
   "creativetab.tutorialmod.alexandrite_blocks": "Blocs d'Alexandrite"
 }
