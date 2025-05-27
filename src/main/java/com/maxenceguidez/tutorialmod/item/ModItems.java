@@ -16,6 +16,8 @@ public class ModItems {
 
     public static final RegistryObject<Item> CHISEL = ITEMS.register("chisel", () -> new ChiselItem(new Item.Properties().durability(32)));
 
+    public static final RegistryObject<Item> KOHLRABI = ITEMS.register("kohlrabi", () -> new Item(new Item.Properties().food(ModFoodProperties.KOHLRABI)));
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
