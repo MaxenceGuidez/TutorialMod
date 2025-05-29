@@ -1,7 +1,9 @@
 package com.maxenceguidez.tutorialmod.item.custom;
 
 import com.maxenceguidez.tutorialmod.block.ModBlocks;
+import com.maxenceguidez.tutorialmod.component.ModDataComponentTypes;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.core.component.DataComponentType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -47,6 +49,8 @@ public class ChiselItem extends Item {
                 );
 
                 level.playSound(null, pContext.getClickedPos(), SoundEvents.GRINDSTONE_USE, SoundSource.BLOCKS);
+
+                pContext.getItemInHand().set(ModDataComponentTypes.COORDINATES.get(), pContext.getClickedPos());
             }
         }
 
@@ -56,10 +60,18 @@ public class ChiselItem extends Item {
     @Override
     public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
         if (Screen.hasShiftDown()) {
-            pTooltipComponents.add(Component.translatable("tooltip.tutorialmod.chisel.shift_down"));
-        } else {
             pTooltipComponents.add(Component.translatable("tooltip.tutorialmod.chisel"));
+        } else {
+            pTooltipComponents.add(Component.translatable("tooltip.tutorialmod.shift"));
         }
+
+        if (pStack.get(ModDataComponentTypes.COORDINATES.get()) != null) {
+            pTooltipComponents.add(
+                    Component.translatable("tooltip.tutorialmod.chisel.coordinates")
+                            .append(Component.literal(String.valueOf(pStack.get(ModDataComponentTypes.COORDINATES.get()))))
+            );
+        }
+
         super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
     }
 }
