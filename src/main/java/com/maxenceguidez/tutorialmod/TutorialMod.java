@@ -4,6 +4,7 @@ import com.maxenceguidez.tutorialmod.block.ModBlocks;
 import com.maxenceguidez.tutorialmod.component.ModDataComponentTypes;
 import com.maxenceguidez.tutorialmod.item.ModCreativeModeTabs;
 import com.maxenceguidez.tutorialmod.item.ModItems;
+import com.maxenceguidez.tutorialmod.util.ModItemProperties;
 import com.mojang.logging.LogUtils;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
@@ -76,7 +77,7 @@ public class TutorialMod {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
+            ModItemProperties.addCustomItemProperties();
         }
     }
 }
