@@ -15,6 +15,7 @@
   "item.tutorialmod.alexandrite_leggings": "Alexandrite Leggings",
   "item.tutorialmod.alexandrite_boots": "Alexandrite Boots",
   "item.tutorialmod.alexandrite_horse_armor": "Alexandrite Horse Armor",
+  "item.tutorialmod.kaupen_armor_trim_smithing_template": "Kaupen Trim Template",
   "block.tutorialmod.alexandrite_block": "Block of Alexandrite",
   "block.tutorialmod.raw_alexandrite_block": "Block of Raw Alexandrite",
   "block.tutorialmod.alexandrite_ore": "Alexandrite Ore",
@@ -36,5 +37,7 @@
   "tooltip.tutorialmod.magic_block": "This block is quite §9MAGICAL§r!",
   "tooltip.tutorialmod.chisel": "This item changes certain blocks.",
   "tooltip.tutorialmod.chisel.coordinates": "Last block changed at ",
-  "tooltip.tutorialmod.kohlrabi": "This tastes GREAT!"
+  "tooltip.tutorialmod.kohlrabi": "This tastes GREAT!",
+  "trim_pattern.tutorialmod.kaupen": "Kaupen Armor Trim",
+  "trim_material.tutorialmod.alexandrite": "Alexandrite Material"
 }
