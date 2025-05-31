@@ -2,6 +2,7 @@ package com.maxenceguidez.tutorialmod.item.custom;
 
 import com.maxenceguidez.tutorialmod.block.ModBlocks;
 import com.maxenceguidez.tutorialmod.component.ModDataComponentTypes;
+import com.maxenceguidez.tutorialmod.sound.ModSounds;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.network.chat.Component;
@@ -48,7 +49,7 @@ public class ChiselItem extends Item {
                         item -> pContext.getPlayer().onEquippedItemBroken(item, EquipmentSlot.MAINHAND)
                 );
 
-                level.playSound(null, pContext.getClickedPos(), SoundEvents.GRINDSTONE_USE, SoundSource.BLOCKS);
+                level.playSound(null, pContext.getClickedPos(), ModSounds.CHISEL_USE.get(), SoundSource.BLOCKS);
 
                 pContext.getItemInHand().set(ModDataComponentTypes.COORDINATES.get(), pContext.getClickedPos());
             }

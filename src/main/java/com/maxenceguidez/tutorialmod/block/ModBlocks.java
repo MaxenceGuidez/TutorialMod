@@ -4,6 +4,7 @@ import com.maxenceguidez.tutorialmod.TutorialMod;
 import com.maxenceguidez.tutorialmod.block.custom.AlexandriteLampBlock;
 import com.maxenceguidez.tutorialmod.block.custom.MagicBlock;
 import com.maxenceguidez.tutorialmod.item.ModItems;
+import com.maxenceguidez.tutorialmod.sound.ModSounds;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -36,7 +37,7 @@ public class ModBlocks {
                     .strength(5f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
 
     public static final RegistryObject<Block> MAGIC_BLOCK = registerBlock("magic_block",
-            () -> new MagicBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()));
+            () -> new MagicBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops().sound(ModSounds.MAGIC_BLOCK_SOUNDS)));
 
     public static final RegistryObject<StairBlock> ALEXANDRITE_STAIRS = registerBlock("alexandrite_stairs",
             () -> new StairBlock(ModBlocks.ALEXANDRITE_BLOCK.get().defaultBlockState(), BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops()));
