@@ -5,6 +5,7 @@ import com.maxenceguidez.tutorialmod.component.ModDataComponentTypes;
 import com.maxenceguidez.tutorialmod.effect.ModEffects;
 import com.maxenceguidez.tutorialmod.item.ModCreativeModeTabs;
 import com.maxenceguidez.tutorialmod.item.ModItems;
+import com.maxenceguidez.tutorialmod.potion.ModPotions;
 import com.maxenceguidez.tutorialmod.sound.ModSounds;
 import com.maxenceguidez.tutorialmod.util.ModItemProperties;
 import com.mojang.logging.LogUtils;
@@ -47,6 +48,7 @@ public class TutorialMod {
         ModSounds.register(modEventBus);
 
         ModEffects.register(modEventBus);
+        ModPotions.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
