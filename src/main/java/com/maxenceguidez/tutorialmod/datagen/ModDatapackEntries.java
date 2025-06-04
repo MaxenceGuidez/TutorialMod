@@ -1,6 +1,7 @@
 package com.maxenceguidez.tutorialmod.datagen;
 
 import com.maxenceguidez.tutorialmod.TutorialMod;
+import com.maxenceguidez.tutorialmod.enchantment.ModEnchantments;
 import com.maxenceguidez.tutorialmod.trim.ModTrimMaterials;
 import com.maxenceguidez.tutorialmod.trim.ModTrimPatterns;
 import net.minecraft.core.HolderLookup;
@@ -15,7 +16,8 @@ import java.util.concurrent.CompletableFuture;
 public class ModDatapackEntries extends DatapackBuiltinEntriesProvider {
     public static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
             .add(Registries.TRIM_MATERIAL, ModTrimMaterials::bootstrap)
-            .add(Registries.TRIM_PATTERN, ModTrimPatterns::bootstrap);
+            .add(Registries.TRIM_PATTERN, ModTrimPatterns::bootstrap)
+            .add(Registries.ENCHANTMENT, ModEnchantments::bootstrap);
 
     public ModDatapackEntries(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries, BUILDER, Set.of(TutorialMod.MOD_ID));
