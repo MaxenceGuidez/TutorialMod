@@ -8,4 +8,7 @@ public class ModFoodProperties {
     public static final FoodProperties KOHLRABI = new FoodProperties.Builder().nutrition(3)
             .saturationModifier(.25f)
             .effect(new MobEffectInstance(MobEffects.INVISIBILITY, 400), .2f).build();
+
+    public static final FoodProperties HONEY_BERRY = new FoodProperties.Builder().nutrition(2)
+            .saturationModifier(.15f).fast().build();
 }

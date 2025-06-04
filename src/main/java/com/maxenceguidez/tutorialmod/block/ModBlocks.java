@@ -2,6 +2,7 @@ package com.maxenceguidez.tutorialmod.block;
 
 import com.maxenceguidez.tutorialmod.TutorialMod;
 import com.maxenceguidez.tutorialmod.block.custom.AlexandriteLampBlock;
+import com.maxenceguidez.tutorialmod.block.custom.HoneyBerryBushBlock;
 import com.maxenceguidez.tutorialmod.block.custom.KohlrabiCropBlock;
 import com.maxenceguidez.tutorialmod.block.custom.MagicBlock;
 import com.maxenceguidez.tutorialmod.item.ModItems;
@@ -66,6 +67,7 @@ public class ModBlocks {
             () -> new AlexandriteLampBlock(BlockBehaviour.Properties.of().strength(3f).lightLevel(state -> state.getValue(AlexandriteLampBlock.CLICKED) ? 15 : 0)));
 
     public static final RegistryObject<Block> KOHLRABI_CROP = BLOCKS.register("kohlrabi_crop", () -> new KohlrabiCropBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT)));
+    public static final RegistryObject<Block> HONEY_BERRY_BUSH = BLOCKS.register("honey_berry_bush", () -> new HoneyBerryBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> blockObj = BLOCKS.register(name, block);
