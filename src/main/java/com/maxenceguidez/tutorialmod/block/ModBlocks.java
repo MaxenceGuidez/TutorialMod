@@ -115,7 +115,7 @@ public class ModBlocks {
         }
     });
 
-    public static final RegistryObject<Block> WALNUT_SAPLING = registerBlock("walnut_sapling", () -> new SaplingBlock(ModTreeGrowers.WALNUT, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+    public static final RegistryObject<Block> WALNUT_SAPLING = registerBlock("walnut_sapling", () -> new ModSaplingBlock(ModTreeGrowers.WALNUT, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING), () -> Blocks.END_STONE));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> blockObj = BLOCKS.register(name, block);
