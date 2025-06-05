@@ -4,12 +4,15 @@ import com.maxenceguidez.tutorialmod.block.ModBlocks;
 import com.maxenceguidez.tutorialmod.component.ModDataComponentTypes;
 import com.maxenceguidez.tutorialmod.effect.ModEffects;
 import com.maxenceguidez.tutorialmod.enchantment.ModEnchantmentEffects;
+import com.maxenceguidez.tutorialmod.entity.ModEntities;
+import com.maxenceguidez.tutorialmod.entity.client.TriceratopsRenderer;
 import com.maxenceguidez.tutorialmod.item.ModCreativeModeTabs;
 import com.maxenceguidez.tutorialmod.item.ModItems;
 import com.maxenceguidez.tutorialmod.potion.ModPotions;
 import com.maxenceguidez.tutorialmod.sound.ModSounds;
 import com.maxenceguidez.tutorialmod.util.ModItemProperties;
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraftforge.api.distmarker.Dist;
@@ -54,6 +57,8 @@ public class TutorialMod {
 
         ModEnchantmentEffects.register(modEventBus);
 
+        ModEntities.register(modEventBus);
+
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
@@ -92,6 +97,8 @@ public class TutorialMod {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             ModItemProperties.addCustomItemProperties();
+
+            EntityRenderers.register(ModEntities.TRICERATOPS.get(), TriceratopsRenderer::new);
         }
     }
 }
