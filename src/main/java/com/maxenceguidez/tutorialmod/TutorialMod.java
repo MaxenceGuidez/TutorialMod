@@ -5,6 +5,7 @@ import com.maxenceguidez.tutorialmod.component.ModDataComponentTypes;
 import com.maxenceguidez.tutorialmod.effect.ModEffects;
 import com.maxenceguidez.tutorialmod.enchantment.ModEnchantmentEffects;
 import com.maxenceguidez.tutorialmod.entity.ModEntities;
+import com.maxenceguidez.tutorialmod.entity.client.ChairRenderer;
 import com.maxenceguidez.tutorialmod.entity.client.TomahawkProjectileRenderer;
 import com.maxenceguidez.tutorialmod.entity.client.TriceratopsRenderer;
 import com.maxenceguidez.tutorialmod.item.ModCreativeModeTabs;
@@ -101,6 +102,7 @@ public class TutorialMod {
 
             EntityRenderers.register(ModEntities.TRICERATOPS.get(), TriceratopsRenderer::new);
             EntityRenderers.register(ModEntities.TOMAHAWK.get(), TomahawkProjectileRenderer::new);
+            EntityRenderers.register(ModEntities.CHAIR.get(), ChairRenderer::new);
         }
     }
 }

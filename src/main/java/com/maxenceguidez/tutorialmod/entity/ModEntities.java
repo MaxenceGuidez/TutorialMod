@@ -1,6 +1,7 @@
 package com.maxenceguidez.tutorialmod.entity;
 
 import com.maxenceguidez.tutorialmod.TutorialMod;
+import com.maxenceguidez.tutorialmod.entity.custom.ChairEntity;
 import com.maxenceguidez.tutorialmod.entity.custom.TomahawkProjectileEntity;
 import com.maxenceguidez.tutorialmod.entity.custom.TriceratopsEntity;
 import net.minecraft.world.entity.EntityType;
@@ -18,6 +19,9 @@ public class ModEntities {
 
     public static final RegistryObject<EntityType<TomahawkProjectileEntity>> TOMAHAWK = ENTITY_TYPES.register("tomahawk",
             () -> EntityType.Builder.<TomahawkProjectileEntity>of(TomahawkProjectileEntity::new, MobCategory.MISC).sized(.5f, 1.15f).build("tomahawk"));
+
+    public static final RegistryObject<EntityType<ChairEntity>> CHAIR = ENTITY_TYPES.register("chair_entity",
+            () -> EntityType.Builder.of(ChairEntity::new, MobCategory.MISC).sized(.5f, .5f).build("chair_entity"));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

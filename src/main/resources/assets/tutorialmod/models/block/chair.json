@@ -6,7 +6,7 @@
   ],
   "textures": {
     "0": "tutorialmod:block/chair",
-    "particle": "tutorialmod:chair"
+    "particle": "tutorialmod:block/chair"
   },
   "elements": [
     {
