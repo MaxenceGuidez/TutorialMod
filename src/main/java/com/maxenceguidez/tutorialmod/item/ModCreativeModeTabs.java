@@ -52,6 +52,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.TRICERATOPS_SPAWN_EGG.get());
 
                         output.accept(ModItems.TOMAHAWK.get());
+
+                        output.accept(ModItems.RADIATION_STAFF.get());
                     }).build());
 
     public static final RegistryObject<CreativeModeTab> ALEXANDRITE_BLOCKS_TAB = CREATIVE_MODE_TABS.register("alexandrite_blocks_tab",
