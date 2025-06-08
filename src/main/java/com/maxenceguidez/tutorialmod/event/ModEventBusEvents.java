@@ -2,6 +2,7 @@ package com.maxenceguidez.tutorialmod.event;
 
 import com.maxenceguidez.tutorialmod.TutorialMod;
 import com.maxenceguidez.tutorialmod.entity.ModEntities;
+import com.maxenceguidez.tutorialmod.entity.client.TomahawkProjectileModel;
 import com.maxenceguidez.tutorialmod.entity.client.TriceratopsModel;
 import com.maxenceguidez.tutorialmod.entity.custom.TriceratopsEntity;
 import net.minecraft.world.entity.SpawnPlacementTypes;
@@ -18,6 +19,7 @@ public class ModEventBusEvents {
     @SubscribeEvent
     public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(TriceratopsModel.LAYER_LOCATION, TriceratopsModel::createBodyLayer);
+        event.registerLayerDefinition(TomahawkProjectileModel.LAYER_LOCATION, TomahawkProjectileModel::createBodyLayer);
     }
 
     @SubscribeEvent

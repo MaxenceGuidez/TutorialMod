@@ -3,10 +3,7 @@ package com.maxenceguidez.tutorialmod.item;
 import com.maxenceguidez.tutorialmod.TutorialMod;
 import com.maxenceguidez.tutorialmod.block.ModBlocks;
 import com.maxenceguidez.tutorialmod.entity.ModEntities;
-import com.maxenceguidez.tutorialmod.item.custom.ChiselItem;
-import com.maxenceguidez.tutorialmod.item.custom.FuelItem;
-import com.maxenceguidez.tutorialmod.item.custom.HammerItem;
-import com.maxenceguidez.tutorialmod.item.custom.ModArmorItem;
+import com.maxenceguidez.tutorialmod.item.custom.*;
 import com.maxenceguidez.tutorialmod.sound.ModSounds;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -61,6 +58,8 @@ public class ModItems {
     public static final RegistryObject<Item> HONEY_BERRIES = ITEMS.register("honey_berries", () -> new ItemNameBlockItem(ModBlocks.HONEY_BERRY_BUSH.get(), new Item.Properties().food(ModFoodProperties.HONEY_BERRY)));
 
     public static final RegistryObject<Item> TRICERATOPS_SPAWN_EGG = ITEMS.register("triceratops_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.TRICERATOPS, 0x53524b, 0xdac741, new Item.Properties()));
+
+    public static final RegistryObject<Item> TOMAHAWK = ITEMS.register("tomahawk", () -> new TomahawkItem(new Item.Properties().stacksTo(16)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
