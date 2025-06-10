@@ -10,6 +10,8 @@ import com.maxenceguidez.tutorialmod.entity.client.TomahawkProjectileRenderer;
 import com.maxenceguidez.tutorialmod.entity.client.TriceratopsRenderer;
 import com.maxenceguidez.tutorialmod.item.ModCreativeModeTabs;
 import com.maxenceguidez.tutorialmod.item.ModItems;
+import com.maxenceguidez.tutorialmod.particle.AlexandriteParticles;
+import com.maxenceguidez.tutorialmod.particle.ModParticles;
 import com.maxenceguidez.tutorialmod.potion.ModPotions;
 import com.maxenceguidez.tutorialmod.sound.ModSounds;
 import com.maxenceguidez.tutorialmod.util.ModItemProperties;
@@ -19,6 +21,7 @@ import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -64,6 +67,8 @@ public class TutorialMod {
 
         ModVillagers.register(modEventBus);
 
+        ModParticles.register(modEventBus);
+
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
@@ -106,6 +111,11 @@ public class TutorialMod {
             EntityRenderers.register(ModEntities.TRICERATOPS.get(), TriceratopsRenderer::new);
             EntityRenderers.register(ModEntities.TOMAHAWK.get(), TomahawkProjectileRenderer::new);
             EntityRenderers.register(ModEntities.CHAIR.get(), ChairRenderer::new);
+        }
+
+        @SubscribeEvent
+        public static void registerParticleProvider(RegisterParticleProvidersEvent event) {
+            event.registerSpriteSet(ModParticles.ALEXANDRITE_PARTICLES.get(), AlexandriteParticles.Provider::new);
         }
     }
 }

@@ -2,6 +2,7 @@ package com.maxenceguidez.tutorialmod.item.custom;
 
 import com.maxenceguidez.tutorialmod.block.ModBlocks;
 import com.maxenceguidez.tutorialmod.component.ModDataComponentTypes;
+import com.maxenceguidez.tutorialmod.particle.ModParticles;
 import com.maxenceguidez.tutorialmod.sound.ModSounds;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.component.DataComponentType;
@@ -57,7 +58,10 @@ public class ChiselItem extends Item {
                         pContext.getClickedPos().getX() + .5, pContext.getClickedPos().getY() + 1.0, pContext.getClickedPos().getZ() + .5, 10, 0, 0, 0, 1);
 
                 ((ServerLevel) level).sendParticles(ParticleTypes.HAPPY_VILLAGER,
-                        pContext.getClickedPos().getX() + .5, pContext.getClickedPos().getY() + 1.0, pContext.getClickedPos().getZ() + .5, 10, 0, 0, 0, 3);
+                        pContext.getClickedPos().getX() + .5, pContext.getClickedPos().getY() + 1.0, pContext.getClickedPos().getZ() + .5, 4, 0, 0, 0, 3);
+
+                ((ServerLevel) level).sendParticles(ModParticles.ALEXANDRITE_PARTICLES.get(),
+                        pContext.getClickedPos().getX() + .5, pContext.getClickedPos().getY() + 1.0, pContext.getClickedPos().getZ() + .5, 8, 0, 0, 0, 2);
 
                 pContext.getItemInHand().set(ModDataComponentTypes.COORDINATES.get(), pContext.getClickedPos());
             }
