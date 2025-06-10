@@ -72,5 +72,6 @@
   "trim_pattern.tutorialmod.kaupen": "Kaupen Armor Trim",
   "trim_material.tutorialmod.alexandrite": "Alexandrite Material",
   "entity.tutorialmod.triceratops": "Triceratops",
-  "entity.tutorialmod.tomahawk": "Tomahawk"
+  "entity.tutorialmod.tomahawk": "Tomahawk",
+  "entity.tutorialmod.villager.kaupenger": "Kaupenger"
 }

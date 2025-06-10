@@ -13,6 +13,7 @@ import com.maxenceguidez.tutorialmod.item.ModItems;
 import com.maxenceguidez.tutorialmod.potion.ModPotions;
 import com.maxenceguidez.tutorialmod.sound.ModSounds;
 import com.maxenceguidez.tutorialmod.util.ModItemProperties;
+import com.maxenceguidez.tutorialmod.villager.ModVillagers;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -60,6 +61,8 @@ public class TutorialMod {
         ModEnchantmentEffects.register(modEventBus);
 
         ModEntities.register(modEventBus);
+
+        ModVillagers.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);

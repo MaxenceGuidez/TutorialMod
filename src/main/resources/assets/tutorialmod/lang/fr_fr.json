@@ -72,5 +72,6 @@
   "trim_pattern.tutorialmod.kaupen": "Motif d’ornement Kaupen",
   "trim_material.tutorialmod.alexandrite": "Matériau en Alexandrite",
   "entity.tutorialmod.triceratops": "Tricératops",
-  "entity.tutorialmod.tomahawk": "Tomahawk"
+  "entity.tutorialmod.tomahawk": "Tomahawk",
+  "entity.tutorialmod.villager.kaupenger": "Kaupenger"
 }
