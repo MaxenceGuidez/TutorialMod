@@ -10,6 +10,7 @@ import com.maxenceguidez.tutorialmod.entity.client.TomahawkProjectileRenderer;
 import com.maxenceguidez.tutorialmod.entity.client.TriceratopsRenderer;
 import com.maxenceguidez.tutorialmod.item.ModCreativeModeTabs;
 import com.maxenceguidez.tutorialmod.item.ModItems;
+import com.maxenceguidez.tutorialmod.loot.ModLootModifiers;
 import com.maxenceguidez.tutorialmod.particle.AlexandriteParticles;
 import com.maxenceguidez.tutorialmod.particle.ModParticles;
 import com.maxenceguidez.tutorialmod.potion.ModPotions;
@@ -68,6 +69,8 @@ public class TutorialMod {
         ModVillagers.register(modEventBus);
 
         ModParticles.register(modEventBus);
+
+        ModLootModifiers.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
