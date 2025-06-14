@@ -2,6 +2,9 @@ package com.maxenceguidez.tutorialmod.block.entity.custom;
 
 import com.maxenceguidez.tutorialmod.block.entity.ModBlockEntities;
 import com.maxenceguidez.tutorialmod.item.ModItems;
+import com.maxenceguidez.tutorialmod.recipe.GrowthChamberRecipe;
+import com.maxenceguidez.tutorialmod.recipe.GrowthChamberRecipeInput;
+import com.maxenceguidez.tutorialmod.recipe.ModRecipes;
 import com.maxenceguidez.tutorialmod.screen.custom.GrowthChamberMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -17,8 +20,8 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -26,6 +29,8 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
 
 public class GrowthChamberBlockEntity extends BlockEntity implements MenuProvider {
     public final ItemStackHandler itemHandler = new ItemStackHandler(2) {
@@ -146,7 +151,8 @@ public class GrowthChamberBlockEntity extends BlockEntity implements MenuProvide
     }
 
     private void craftItem() {
-        ItemStack output = new ItemStack(ModItems.ALEXANDRITE.get());
+        Optional<RecipeHolder<GrowthChamberRecipe>> recipe = getCurrentRecipe();
+        ItemStack output = recipe.get().value().output();
 
         itemHandler.extractItem(INPUT_SLOT, 1, false);
         itemHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(output.getItem(), itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + output.getCount()));
@@ -161,10 +167,15 @@ public class GrowthChamberBlockEntity extends BlockEntity implements MenuProvide
     }
 
     private boolean hasRecipe() {
-        Item input = ModItems.RAW_ALEXANDRITE.get();
-        ItemStack output = new ItemStack(ModItems.ALEXANDRITE.get());
+        Optional<RecipeHolder<GrowthChamberRecipe>> recipe = getCurrentRecipe();
+        if (recipe.isEmpty()) return false;
 
-        return itemHandler.getStackInSlot(INPUT_SLOT).is(input) && canInsertItemIntoOutputSlot(output) && canInsertAmountIntoOutputSlot(output.getCount());
+        ItemStack output = recipe.get().value().output();
+        return canInsertItemIntoOutputSlot(output) && canInsertAmountIntoOutputSlot(output.getCount());
+    }
+
+    private Optional<RecipeHolder<GrowthChamberRecipe>> getCurrentRecipe() {
+        return this.level.getRecipeManager().getRecipeFor(ModRecipes.GROWTH_CHAMBER_TYPE.get(), new GrowthChamberRecipeInput(itemHandler.getStackInSlot(INPUT_SLOT)), level);
     }
 
     private boolean canInsertItemIntoOutputSlot(ItemStack output) {

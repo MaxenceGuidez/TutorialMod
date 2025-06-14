@@ -16,6 +16,7 @@ import com.maxenceguidez.tutorialmod.loot.ModLootModifiers;
 import com.maxenceguidez.tutorialmod.particle.AlexandriteParticles;
 import com.maxenceguidez.tutorialmod.particle.ModParticles;
 import com.maxenceguidez.tutorialmod.potion.ModPotions;
+import com.maxenceguidez.tutorialmod.recipe.ModRecipes;
 import com.maxenceguidez.tutorialmod.screen.ModMenuTypes;
 import com.maxenceguidez.tutorialmod.screen.custom.GrowthChamberScreen;
 import com.maxenceguidez.tutorialmod.screen.custom.PedestalScreen;
@@ -82,6 +83,8 @@ public class TutorialMod {
         ModBlockEntities.register(modEventBus);
 
         ModMenuTypes.register(modEventBus);
+
+        ModRecipes.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
