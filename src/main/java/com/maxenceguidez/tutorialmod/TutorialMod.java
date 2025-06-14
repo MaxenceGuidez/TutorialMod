@@ -17,6 +17,7 @@ import com.maxenceguidez.tutorialmod.particle.AlexandriteParticles;
 import com.maxenceguidez.tutorialmod.particle.ModParticles;
 import com.maxenceguidez.tutorialmod.potion.ModPotions;
 import com.maxenceguidez.tutorialmod.screen.ModMenuTypes;
+import com.maxenceguidez.tutorialmod.screen.custom.GrowthChamberScreen;
 import com.maxenceguidez.tutorialmod.screen.custom.PedestalScreen;
 import com.maxenceguidez.tutorialmod.sound.ModSounds;
 import com.maxenceguidez.tutorialmod.util.ModItemProperties;
@@ -126,6 +127,7 @@ public class TutorialMod {
             EntityRenderers.register(ModEntities.CHAIR.get(), ChairRenderer::new);
 
             MenuScreens.register(ModMenuTypes.PEDESTAL_MENU.get(), PedestalScreen::new);
+            MenuScreens.register(ModMenuTypes.GROWTH_CHAMBER_MENU.get(), GrowthChamberScreen::new);
         }
 
         @SubscribeEvent

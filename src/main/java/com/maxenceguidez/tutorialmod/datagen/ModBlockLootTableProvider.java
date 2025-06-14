@@ -90,6 +90,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.CHAIR.get());
 
         this.dropSelf(ModBlocks.PEDESTAL.get());
+        this.dropSelf(ModBlocks.GROWTH_CHAMBER.get());
     }
 
     @Override

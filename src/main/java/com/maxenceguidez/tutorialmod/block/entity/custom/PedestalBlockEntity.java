@@ -78,7 +78,7 @@ public class PedestalBlockEntity extends BlockEntity implements MenuProvider {
 
     @Override
     public Component getDisplayName() {
-        return Component.literal("Pedestal");
+        return Component.translatable("block.tutorialmod.pedestal");
     }
 
     @Override
