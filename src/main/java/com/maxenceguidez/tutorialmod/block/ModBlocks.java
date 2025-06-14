@@ -78,12 +78,12 @@ public class ModBlocks {
             () -> new KohlrabiCropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).strength(0.2F)
                     .randomTicks().sound(SoundType.CROP)
                     .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(TutorialMod.MOD_ID, "kohlrabi_crop")))
-                    .noOcclusion().pushReaction(PushReaction.DESTROY)));
+                    .noCollission().pushReaction(PushReaction.DESTROY)));
     public static final RegistryObject<Block> HONEY_BERRY_BUSH = BLOCKS.register("honey_berry_bush",
             () -> new HoneyBerryBushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).strength(0.2F)
                     .randomTicks().sound(SoundType.CROP)
                     .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(TutorialMod.MOD_ID, "honey_berry_bush")))
-                    .noOcclusion().pushReaction(PushReaction.DESTROY)));
+                    .noCollission().pushReaction(PushReaction.DESTROY)));
 
     public static final RegistryObject<RotatedPillarBlock> WALNUT_LOG = registerBlock("walnut_log",
             (properties) -> new ModFlammableRotatedPillarBlock(properties.instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.CHERRY_WOOD).ignitedByLava()));
