@@ -1,6 +1,5 @@
 package com.maxenceguidez.tutorialmod.block.custom;
 
-import com.maxenceguidez.tutorialmod.item.ModItems;
 import com.maxenceguidez.tutorialmod.particle.ModParticles;
 import com.maxenceguidez.tutorialmod.util.ModTags;
 import net.minecraft.core.BlockPos;

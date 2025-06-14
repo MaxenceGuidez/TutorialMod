@@ -2,9 +2,7 @@ package com.maxenceguidez.tutorialmod.entity.client;
 
 import com.maxenceguidez.tutorialmod.TutorialMod;
 import com.maxenceguidez.tutorialmod.entity.custom.TriceratopsEntity;
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
@@ -12,12 +10,13 @@ import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 
-public class TriceratopsModel<T extends TriceratopsEntity> extends HierarchicalModel<T> {
+public class TriceratopsModel<T extends TriceratopsEntity> extends EntityModel<TriceratopsRenderState> {
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(TutorialMod.MOD_ID, "triceratops"), "main");
     private final ModelPart body;
     private final ModelPart head;
 
     public TriceratopsModel(ModelPart root) {
+        super(root);
         this.body = root.getChild("body");
         this.head = body.getChild("upper").getChild("neck").getChild("head");
     }
@@ -155,22 +154,12 @@ public class TriceratopsModel<T extends TriceratopsEntity> extends HierarchicalM
     }
 
     @Override
-    public void setupAnim(TriceratopsEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+    public void setupAnim(TriceratopsRenderState state) {
         this.root().getAllParts().forEach(ModelPart::resetPose);
-        this.applyHeadRotation(netHeadYaw, headPitch);
+        this.applyHeadRotation(state.yRot, state.xRot);
 
-        this.animateWalk(TriceratopsAnimations.ANIM_TRICERATOPS_WALKING, limbSwing, limbSwingAmount, 2f, 2.5f);
-        this.animate(entity.idleAnimationState, TriceratopsAnimations.ANIM_TRICERATOPS_IDLE, ageInTicks, 1f);
-    }
-
-    @Override
-    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
-        body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
-    }
-
-    @Override
-    public ModelPart root() {
-        return body;
+        this.animateWalk(TriceratopsAnimations.ANIM_TRICERATOPS_WALKING, state.walkAnimationPos, state.walkAnimationSpeed, 2f, 2.5f);
+        this.animate(state.idleAnimationState, TriceratopsAnimations.ANIM_TRICERATOPS_IDLE, state.ageInTicks, 1f);
     }
 
     private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch) {

@@ -60,7 +60,8 @@ public class TriceratopsEntity extends Animal {
         return Animal.createLivingAttributes()
                 .add(Attributes.MAX_HEALTH, 30)
                 .add(Attributes.MOVEMENT_SPEED, .35)
-                .add(Attributes.FOLLOW_RANGE, 24);
+                .add(Attributes.FOLLOW_RANGE, 24)
+                .add(Attributes.TEMPT_RANGE, 12);
     }
 
     @Override
@@ -70,7 +71,7 @@ public class TriceratopsEntity extends Animal {
 
     @Override
     public @Nullable AgeableMob getBreedOffspring(ServerLevel serverLevel, AgeableMob ageableMob) {
-        return ModEntities.TRICERATOPS.get().create(serverLevel);
+        return ModEntities.TRICERATOPS.get().create(serverLevel, EntitySpawnReason.BREEDING);
     }
 
     @Override
@@ -123,7 +124,7 @@ public class TriceratopsEntity extends Animal {
     }
 
     @Override
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pSpawnType, @Nullable SpawnGroupData pSpawnGroupData) {
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, EntitySpawnReason pSpawnType, @Nullable SpawnGroupData pSpawnGroupData) {
         TriceratopsVariant variant = Util.getRandom(TriceratopsVariant.values(), this.random);
         this.setVariant(variant);
         return super.finalizeSpawn(pLevel, pDifficulty, pSpawnType, pSpawnGroupData);

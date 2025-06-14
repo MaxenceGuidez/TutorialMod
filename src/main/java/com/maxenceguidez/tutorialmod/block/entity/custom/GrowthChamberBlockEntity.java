@@ -1,7 +1,6 @@
 package com.maxenceguidez.tutorialmod.block.entity.custom;
 
 import com.maxenceguidez.tutorialmod.block.entity.ModBlockEntities;
-import com.maxenceguidez.tutorialmod.item.ModItems;
 import com.maxenceguidez.tutorialmod.recipe.GrowthChamberRecipe;
 import com.maxenceguidez.tutorialmod.recipe.GrowthChamberRecipeInput;
 import com.maxenceguidez.tutorialmod.recipe.ModRecipes;
@@ -13,6 +12,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -175,7 +175,7 @@ public class GrowthChamberBlockEntity extends BlockEntity implements MenuProvide
     }
 
     private Optional<RecipeHolder<GrowthChamberRecipe>> getCurrentRecipe() {
-        return this.level.getRecipeManager().getRecipeFor(ModRecipes.GROWTH_CHAMBER_TYPE.get(), new GrowthChamberRecipeInput(itemHandler.getStackInSlot(INPUT_SLOT)), level);
+        return ((ServerLevel) this.level).recipeAccess().getRecipeFor(ModRecipes.GROWTH_CHAMBER_TYPE.get(), new GrowthChamberRecipeInput(itemHandler.getStackInSlot(INPUT_SLOT)), level);
     }
 
     private boolean canInsertItemIntoOutputSlot(ItemStack output) {
