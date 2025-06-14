@@ -1,6 +1,7 @@
 package com.maxenceguidez.tutorialmod;
 
 import com.maxenceguidez.tutorialmod.block.ModBlocks;
+import com.maxenceguidez.tutorialmod.block.entity.ModBlockEntities;
 import com.maxenceguidez.tutorialmod.component.ModDataComponentTypes;
 import com.maxenceguidez.tutorialmod.effect.ModEffects;
 import com.maxenceguidez.tutorialmod.enchantment.ModEnchantmentEffects;
@@ -71,6 +72,8 @@ public class TutorialMod {
         ModParticles.register(modEventBus);
 
         ModLootModifiers.register(modEventBus);
+
+        ModBlockEntities.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);

@@ -2,6 +2,7 @@ package com.maxenceguidez.tutorialmod.datagen;
 
 import com.maxenceguidez.tutorialmod.block.ModBlocks;
 import com.maxenceguidez.tutorialmod.block.custom.KohlrabiCropBlock;
+import com.maxenceguidez.tutorialmod.block.entity.ModBlockEntities;
 import com.maxenceguidez.tutorialmod.item.ModItems;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
@@ -87,6 +88,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.add(ModBlocks.WALNUT_LEAVES.get(), block -> createLeavesDrops(block, ModBlocks.WALNUT_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
 
         this.dropSelf(ModBlocks.CHAIR.get());
+
+        this.dropSelf(ModBlocks.PEDESTAL.get());
     }
 
     @Override

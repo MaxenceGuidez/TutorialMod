@@ -119,6 +119,8 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> CHAIR = registerBlock("chair", () -> new ChairBlock(BlockBehaviour.Properties.of().noOcclusion()));
 
+    public static final RegistryObject<Block> PEDESTAL = registerBlock("pedestal", () -> new PedestalBlock(BlockBehaviour.Properties.of().noOcclusion()));
+
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> blockObj = BLOCKS.register(name, block);
         registerBlockItem(name, blockObj);
